@@ -20,16 +20,15 @@ Simply type in `pip install git+https://github.com/paul0noah/cpp-pybind-mex-star
 
 🔺 Matlab
 
-See example file `BUILD_MEX.sh` on how to compile matlab mex wrapper. ⚠️ Do not simply run the `.sh` file as you need to adjust the variables `Matlab_MEX_EXTENSION` and `Matlab_ROOT_DIR` depending on your system.
+You can build the matlab mex files as follows:
 ```
-#!/bin/bash
 mkdir build
 cd build
-cmake .. -DBUILD_MEX_FILE=True -DMatlab_MEX_EXTENSION="mexmaca64" -DMatlab_ROOT_DIR=/Applications/MATLAB_R2022b_beta.app/
+cmake .. -DBUILD_MEX_FILE=True
 make -j 4 cpppymex_myfunc0 cpppymex_myfunc1
 ```
 
-You can find the generate mex file in `/build/mex/` directory in your project (just copy this file into your matlab project and you can call it as shown above).
+You can find the generated mex file in `/build/mex/` directory in your project (just copy this file into your matlab project and you can call it as shown above).
 
 📝 Note when building mex-wrappers on macOS you might need to provide `-DMatlab_MEX_EXTENSION="mexmac64` and `-DMatlab_ROOT_DIR=path/to/your/matlab/install` to your cmake command so that it looks e.g. like
 
@@ -64,13 +63,15 @@ func_id = 1
 When using this code for your own projects please cite the followig:
 
 ```bibtex
-@misc{decimatec2f,
-  title = {Decimate Coarse to Fine},
+@misc{cpp_python_matlab_wrapper,
+  title = {C++ to Python and/or Matlab Wrapper},
   author = {Paul Roetzer},
   note = {https://github.com/paul0noah/pp-pybind-mex-starter},
   year = {2025},
 }
 ```
+
+This repo uses `pybind11` as well as `libigl` so please also attribute these projects accordingly.
 
 ## License 🚀
 This repo is licensed under MIT licence.
